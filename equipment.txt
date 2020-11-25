@@ -1,0 +1,89 @@
+5)Equipment:
+
+
+
+
+public class equipment {
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.Statement;
+	import java.util.ArrayList;
+	import java.util.List;
+
+	import bean.equipment;
+	import resource.DbConnection;
+
+
+
+	public class ProductDao {
+		Statement stmt;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		Connection con;
+		
+		public List<equipment> retrieveAllequipment() {
+		
+			List<equipment> listOfequipment = new ArrayList<equipment>();
+						try {
+						con = DbConnection.getDbConnection();
+						pstmt = con.prepareStatement("select * from equipment");
+						rs = pstmt.executeQuery();
+						while(rs.next()) {
+							//we have to convert all sql query to objects(product)
+							equipment e = new equipment();
+							e.setequipid(rs.getInt(1));
+							e.setequipname(rs.getString(2));
+							e.setequipstock(rs.getInt(3));
+							listOfequipment.add(e);
+						}
+						} catch (Exception e) {
+							System.out.println("retrieveAll equipment "+e);
+						}					
+						return listOfequipment;
+						
+		}
+		
+		
+		public int addequipment(equipment e) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("insert into equipment values(?,?,?)");
+				pstmt.setInt(1, e.getequipid());
+				pstmt.setString(2, e.getequipname());
+				pstmt.setInt(3, e.getequipstock());
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add equipment "+e);
+				return 0;
+			}
+		}
+		public int deleteequipment(int id) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("delete from equipment where equipid=?");
+				pstmt.setInt(1, id);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add equipment "+e);
+				return 0; 
+	}}
+		public int updateequipment(int id) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("update equipment set equipname=?"+"equipstock=?"+
+				"where equipid=?");
+				pstmt.setInt(1, id);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Update equipment "+e);
+				return 0;
+	
+	
+	
+	}
+	
+}

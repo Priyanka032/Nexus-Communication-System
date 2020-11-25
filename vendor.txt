@@ -1,0 +1,88 @@
+4)vendor:
+
+
+public class vendor {
+  
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.Statement;
+	import java.util.ArrayList;
+	import java.util.List;
+
+	import bean.vendor;
+	import resource.DbConnection;
+
+
+
+	public class vendor {
+		Statement stmt;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		Connection con;
+		
+		public List<vendor> retrieveAllvendor() {
+		
+			List<vendor> listOfvendor = new ArrayList<vendor>();
+						try {
+						con = DbConnection.getDbConnection();
+						pstmt = con.prepareStatement("select * from vendor");
+						rs = pstmt.executeQuery();
+						while(rs.next()) {
+							//we have to convert all sql query to objects(product)
+							vendor vv = new vendor();
+							vv.setvendid(rs.getInt(1));
+							vv.setvendname(rs.getString(2));
+							vv.setequipid(rs.getInt(3));
+							listOfvendor.add(vv);
+						}
+						} catch (Exception e) {
+							System.out.println("retrieveAll vendor "+e);
+						}					
+						return listOfvendor;
+						
+		}
+		
+		
+		public int addvendor(vendor vv) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("insert into vendor values(?,?)");
+				pstmt.setInt(1, vv.getvendid());
+				pstmt.setString(2, vv.getvendname());
+				pstmt.setString(3, vv.getequipid());
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add vendor "+e);
+				return 0;
+			}
+		}
+	public int deletevendor(int id) {
+		try {
+			con = DbConnection.getDbConnection();
+			pstmt = con.prepareStatement("delete from vendor where vendid=?");
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Add vendor "+e);
+			return 0; 
+}}
+	public int updatevendor(int id) {
+		try {
+			con = DbConnection.getDbConnection();
+			pstmt = con.prepareStatement("update vendor set vendname=?"+"equipid=?"+"where vendid=?");
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Update vendor "+e);
+			return 0;
+	
+	
+	
+	
+	}
+	
+}

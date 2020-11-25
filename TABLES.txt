@@ -1,0 +1,62 @@
+TABLES:
+
+1)Retail store:
+ create table retailstore (
+ retid number(20) primary key not null,
+ retname varchar(20) not null,
+ retarea varchar(20) not null,
+ retcity varchar(20) not null,
+ retpincode number(20) not null
+ );
+
+2)Employee:
+  create table employee(
+  empid number(20) primary key not null,
+  empname varchar(20) not null,
+  empphno number(20) not null,
+  empaddr varchar(20) not null,
+  empmail varchar(20) not null,
+  usertype varchar(20) not null,
+  foreign key (retid) references retailstore
+  );
+
+3)Customer:
+  create table customer(
+  custid number(20) primary key not null, 
+  custname varchar(20) not null,
+  custphno number(20) not null,
+  custaddr varchar(20) not null,
+  custmail varchar(20) not null,
+  foreign key (retid) references retailstore
+  );
+
+4)Vendor:
+  create table vendor(
+  vendid number(20) primary key not null,
+  vendname varchar(20) not null,
+  foreign key (equipid) references equipment
+  );
+
+5)Equipment:
+  create table equipment(
+  equipid number(20) primary key not null,
+  equipname varchar(20) not null,
+  equipstock number(20) not null
+  );
+
+6)Orders:
+  create table orders(
+  orderid number(20) primary key not null,
+  orderamt number(20) not null,
+  foreign key (custid) references customer,
+  foreign key (retid) references retailstore,
+  foreign key (connectionid) references connections
+  );
+
+7)Connections:
+  create table connections(
+  connectionid number(20) primary key not null,
+  connectionprice number(20) not null,
+  connectionname varchar(20) not null,
+  foreign key (equipid) references equipment
+  );

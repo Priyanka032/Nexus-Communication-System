@@ -1,0 +1,91 @@
+2)Customer:
+
+
+public class customer {
+
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.Statement;
+	import java.util.ArrayList;
+	import java.util.List;
+
+	import bean.customer;
+	import resource.DbConnection;
+
+
+
+	public class customer {
+		Statement stmt;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		Connection con;
+		
+		public List<customer> retrieveAllCustomer() {
+		
+			List<customer> listOfcustomer = new ArrayList<customer>();
+						try {
+						con = DbConnection.getDbConnection();
+						pstmt = con.prepareStatement("select * from customer");
+						rs = pstmt.executeQuery();
+						while(rs.next()) {
+							//we have to convert all sql query to objects(product)
+							Customer cc = new Customer();
+							cc.setcustid(rs.getInt(1));
+							cc.setcustname(rs.getString(2));
+							cc.setcustphno(rs.getInt(3));
+							cc.setcustaddr(rs.getString(4));
+							cc.setcustmail(rs.getString(5));
+							ee.setertid(rs.getInt(7));
+							listOfCustomer.add(cc);
+						}
+						} catch (Exception e) {
+							System.out.println("retrieveAll product "+e);
+						}					
+						return listOfCustomer;
+						
+		}
+		
+		
+		public int addCustomer(Customer cc) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("insert into customer values(?,?,?,?,?)");
+				pstmt.setInt(1, cc.getcustid());
+				pstmt.setString(2, cc.getcustname());
+				pstmt.setInt(3, cc.custphno());
+				pstmt.setString(4, cc.getcustaddr());
+				pstmt.setString(5, cc.getcustmail());
+				pstmt.setInt(6, cc.getretid());
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add customer "+e);
+				return 0;
+			}
+		}
+		public int deletecustomer(int id) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("delete from customer where custid=?");
+				pstmt.setInt(1, id);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add customer "+e);
+				return 0; 
+	}}
+		public int updatecustomer(int id) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("update customer set custname=?"+"custphno=?"+
+				 "custaddr=?"+"custmail=?"+"where custid=?");
+				pstmt.setInt(1, id);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Update customer "+e);
+				return 0;
+	
+	}
+}

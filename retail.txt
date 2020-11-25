@@ -1,0 +1,90 @@
+1)Retail:
+
+
+public class retail {
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.Statement;
+	import java.util.ArrayList;
+	import java.util.List;
+
+	import bean.retailstore;
+	import resource.DbConnection;
+
+
+
+	public class retailstore {
+		Statement stmt;
+		PreparedStatement pstmt;
+		ResultSet rs;
+		Connection con;
+		
+		public List<retail> retrieveAllretail() {
+		
+			List<retail> listOfretail = new ArrayList<retail>();
+						try {
+						con = DbConnection.getDbConnection();
+						pstmt = con.prepareStatement("select * from retail");
+						rs = pstmt.executeQuery();
+						while(rs.next()) {
+							//we have to convert all sql query to objects(product)
+							Retail rr = new Retail();
+							rr.setretid(rs.getInt(1));
+							rr.setretname(rs.getString(2));
+							rr.setretarea(rs.getString(3));
+							rr.setretcity(rs.getString(4));
+							rr.setretpincode(rs.getInt(5));
+							listOfretail.add(rr);
+						}
+						} catch (Exception e) {
+							System.out.println("retrieveAll retail "+e);
+						}					
+						return listOfretail;
+						
+		}
+		
+		
+		public int addretail(Retail rr) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("insert into retail values(?,?,?,?,?)");
+				pstmt.setInt(1, rr.getretid());
+				pstmt.setString(2, rr.getretname());
+				pstmt.setString(3, rr.getretarea());
+				pstmt.setString(4, rr.getretcity());
+				pstmt.setString(5, rr.getretpincode());
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add retail "+e);
+				return 0;
+			}
+		}
+		public int deleteretail(int id) {
+			try {
+				con = DbConnection.getDbConnection();
+				pstmt = con.prepareStatement("delete from retail where retid=?");
+				pstmt.setInt(1, id);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Add retail "+e);
+				return 0; 
+	}}
+			public int updateretail(int id) {
+				try {
+					con = DbConnection.getDbConnection();
+					pstmt = con.prepareStatement("update retail set retname=?"+"retarea=?"+
+					 "retcity=?"+"retpincode=?"+"where empid=?");
+					pstmt.setInt(1, id);
+					return pstmt.executeUpdate();
+				}catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("Update retail "+e);
+					return 0;
+		
+		
+		
+		}
+		}
