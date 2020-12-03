@@ -1,0 +1,564 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<!-- Used for Social Media Tags-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="https://drive.google.com/file/d/1-ADGXAHQ4oObf6BXTWFCJQC3y60CEBUz/view?usp=sharing" type="text/css">
+		
+		<!-- Jquery CDN-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- Counter Up CDNJS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+		<!-- Waypoints CDNJS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+		<!-- Font Awesome Kit -->
+		<script src="https://kit.fontawesome.com/0d6d81eac4.js" crossorigin="anonymous"></script>
+
+		<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Bitter&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+		
+		<title>Patient repository</title>
+
+		 <!-- add icon link -->
+		 <link rel = "icon" href =  
+		 "logo.jpg" 
+				 type = "image/x-icon"> 
+
+<style>
+
+	html{
+		scroll-behavior: smooth;
+	}
+
+
+
+.file-upload__button {
+  -webkit-appearance: none;
+  background: whitesmoke;
+  width: 160px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin-right: 15px;
+  color: black;
+  font-size: 1em;
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  letter-spacing: 2.5px;
+}
+
+.butt:hover {
+  background-color: black;
+  box-shadow: 0px 15px 20px rgba(167, 162, 162, 0.4);
+  color:black;
+  transform: translateY(-7px);
+}
+
+.cardhov:hover{
+	box-shadow: 0px 15px 20px rgba(88, 87, 87, 0.9);
+  	transform: translateY(-7px);
+
+}
+
+#main{
+	margin: 0 ;
+	padding:0;
+	box-sizing: border-box;
+	height: 80%;
+	width: 100%;
+}
+.slider{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to left, #000000, #000033);
+	z-index: -1;
+
+}
+
+section{
+	display: flex;
+	width: 100%;
+	height: 90vh;
+	justify-content: center;
+	align-items: center;
+	
+
+	
+}
+.hero{
+	height:80%;
+	width: 100%;
+
+}
+
+.hero img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.headline{
+	position: absolute;
+	top: 40%;
+	left: 27%;
+	font-size: 50px;
+	transform: translate(-20%,-70%);
+	color: black;
+	text-align: center;
+	font-family: 'Acme', sans-serif;
+}
+
+
+.scrolldown{
+	position: absolute;
+	bottom:10px;
+	left:47%;
+	width: 35px;
+	height: 35px;
+	transform: translateY(-80px); 
+	transform: translateX(-50);
+	transform: rotate(45deg);
+	
+	
+	z-index: 3;
+}
+
+.scrolldown span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height:100%;
+	border-bottom: 2px solid #fff;
+	border-right: 2px solid #fff;
+	animation: animate 1.5s linear infinite;
+	opacity: 0;
+}
+
+
+@keyframes animate {
+	0%{
+		top: -5px;
+		left: -5px;
+		opacity: 0;
+	}
+	25%{
+		top: 0px;
+		left: 0px;
+		opacity: 1;
+	}
+	50%,100%{
+		top: 5px;
+		left: 5px;
+		opacity: 0;
+	}
+	
+}
+
+.text1{
+	letter-spacing: 6px;
+	animation: text 4.5s 1;;
+}
+
+.getstart{
+	position: absolute;
+	top:70%;
+	left:40%;
+	transform: translate(-20%,-70%);
+
+}
+
+@keyframes text {
+	0%{
+		color: #000000;
+		margin-bottom: -20px;
+	}
+	30%{
+		letter-spacing: 25px;
+		margin-bottom: -20px;
+	}
+	85%{
+		letter-spacing: 6px;
+		margin-bottom: -20px;
+	}
+}
+
+.get{
+	border: 2px solid #fff;
+	font-weight: bold;
+	font-family: 'Kanit', sans-serif;
+	letter-spacing:2px ;
+}
+
+
+
+
+
+
+
+
+
+
+.content{
+	position: relative;
+	padding: 20px;
+	padding-top: 80px;
+	
+}
+.box .content h2{
+	position: absolute;
+	top: 10px;
+	right:20px;
+	margin: 0;
+	padding: 0;
+	font-size: 10em;
+	color: rgba(0, 0, 0, 0.05);
+	transition: 0.5s;
+	font-weight: bold;
+}
+
+.box:hover .content h2{
+	top:-40px;
+}
+
+.box .content h3{
+	margin: 0 0 10px;
+	padding: 0%;
+	
+	font-size: 22px;
+	font-weight:500;
+	color: black;
+
+}
+.box .content p{
+	margin: 0;
+	padding: 0;
+	color: black;
+	font-size: 16px;
+}  
+.box .content a{
+	position:relative;
+	margin: 10px 0 0;
+	padding: 10px 20px;
+	text-decoration: none;
+	border: 1px solid #000;
+	display:inline-block;
+	color: #000;
+	transition: 0.5s;
+	transform: translateY(-40px);
+	opacity:0;
+	visibility:hidden;
+
+}
+.box:hover .content a{
+	transform: translateY(0);
+	opacity:1;
+	visibility:visible;
+
+}
+
+.box .content a:hover{
+	color: black;
+	background-color: white;
+}
+
+</style>
+		
+		<script language="javascript">
+			function check(form)
+			{
+				if(form.username.value == "" || form.password.value == "")
+				{
+					alert("Error Enter Password or Username")
+					return false;
+			
+				}
+				else
+				{
+					return true;
+				}
+			}
+			function reg()
+			{
+				alert("redirect")
+				location.ahref= "/register";
+			}
+			</script>
+			
+			
+			<style>
+			html,body{
+   				 height:100%;
+   				 width:100%;
+			}
+ 
+			.navbar{
+					background-color: aqua;
+					
+				}
+			</style>
+
+		<!--	<link rel="stylesheet" href="/static/style.css" type="text/css"> -->
+
+
+
+
+	  </head>
+
+	  <!-- --------------------------------NAVIGATION BAR----------------------------------------------------------------------   -->
+	<body style="height: 100%; width: 100%;">
+
+<!-- Navigation Bar -->
+
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark navbar sticky-top " role="navigation" style=" padding: 0.5% 0; font-size: 1.1em;">
+	<a class="navbar-brand" href="#" style="padding-left: 10px;">
+		<img class="img" src="logo.jpg" width="40px" height="40px" class="d-inline-block align-top" alt="">
+	  </a>
+	 
+	<a class="navbar-brand" href="#">Patient Repository</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+	  <ul class=" navbar-nav  ">
+		<li class="nav-item active " style="margin-left: 800px;">
+		  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			
+		  <a class="nav-link" href="#login" >Register</a>
+		
+		</li>
+		<li class="nav-item">
+		  <a class="nav-link" href="#login">Login</a>
+		</li>
+		
+	  </ul>
+	</div>
+  </nav>
+<!-- -----------------------------------BACKGROUNG FLEX --------------------------------------------------------   -->
+
+
+
+
+
+<header> 
+<section >
+	<div class="hero" >
+		<img src="download1.jpeg" alt="background" >
+		<span class="text1">
+		<h1 class="headline">Patient<br>Repository</h1>
+		</span>
+		<div class="getstart" style="padding-left: 40px; padding-top: 40px;">
+		<a href="#login"><style font color="black";></style><button class="btn btn-outline-light get" type="button"> GET STARTED</button></a>
+		</div>
+		
+	</div>
+</section>
+
+<div class="scrolldown">
+	
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+
+</header>
+
+<div class="slider"></div>
+
+
+<!-- 
+<div id="home" style="background: url(https://wallpaperplay.com/walls/full/4/1/7/87897.jpg) no-repeat center center fixed;
+						display: table; height:80%; position: relative; width: 100%; background-size: cover;" >
+	
+	<div class="landing-text" style="display: table-cell; text-align: center; vertical-align: middle;">
+	<h1 style="font-size: 350%; font-weight: 800%;  ">Giving Voice to Vulnerable <br>Children</h1>
+	<a href="#login" class="btn btn-light " style="margin-top: 20px;">Get Started</a>
+	</div>
+</div>
+-->
+
+		</div>
+		<div class="col-12 col-sm-6 col-md-4 " style="margin-left: 400px"; align="center;">
+			<a name="login">
+				<div class="form-container" style="background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0px 0px 10px 0px;">
+			<form  action="home1.html" method="POST" >
+				<div class="form-group">
+					<p><h4><b><center> Log In</center></b></h4></p>
+				  <label for="exampleInputEmail1">User Name</label>
+				  <input type="text" class="form-control" name="username" size=25 aria-describedby="emailHelp">
+				 <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>  -->
+				</div>
+				<div class="form-group">
+				  <label for="exampleInputPassword1">Password</label>
+				  <input type="password" size=25 class="form-control" name="password" id="exampleInputPassword1">
+				</div>
+		<!--	<div class="form-group form-check">
+				  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+				  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+				</div>
+				-->	
+				<div class="row">
+					<div class="col-sm-6">
+						<div  style="padding-left: 10px;">
+						<button type="reset" class="btn btn-outline-dark" style=" width:120px;border-radius:10px; height:40px; ">Reset</button>
+					</div>
+				</div>
+					<div class="col-sm-6">
+						<form action="home1.html" method="post"><button type="submit" class="btn btn-primary" style=" width:120px;border-radius:10px; height:40px;" onclick="return check(this.form)" value="Login">Submit</button></form>
+					</div>
+				</div>
+
+				<!--
+				<button type="reset" class="btn btn-outline-dark">Reset</button>
+				<button type="submit" class="btn btn-primary" onclick="return check(this.form)" value="Login">Submit</button>
+-->
+			</form>
+
+			<form action="register.html" method="POST">
+				<p style="font-size: small"> <center>Not a member?<button type="submit" class="btn btn-light btn-sm" value="Register">Register</button></center></p>
+				</form>
+			</div>
+			</a>
+
+
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ----------------------------------------- FOOTER --------------------------------------------------------   -->
+
+<footer class="container-fluid text-center" style="width: 100%; background-color: #23415c ; padding:2% 5% 0% 5%; color: #fff; ">
+	<div class="row">
+	<div class ="col-sm-4">
+		<h3> Contact Us</h3>
+		<br>
+		<ul>
+			<li style="text-align: justify;"> <span > first street
+				 </span></li>
+			<li style="text-align: justify;"> <span >+91 836439492</span></li>
+			<li style="text-align: justify;" > <span >xyz@gmail.com</span></li>
+		  </ul>
+	</div>
+	<div class ="col-sm-4">
+		</div>
+	<div class ="col-sm-4">
+		<h3>Have Questions?</h3>
+		<br>
+		<h6 style="text-align: left;">Send a message</h6>
+		<form>
+		<div class="input-group">
+			<textarea class="form-control" aria-label="With textarea" placeholder="Enter text here"></textarea>
+
+		  </div>
+		 
+		  <button type="reset" class="btn btn-primary btn-sm" style="margin-left:320px;">Submit</button> 
+		</form>	
+		</div>
+
+</div>
+</footer>
+
+
+
+
+
+<!--  ----------------------------------------ORIGINAL LOGIN FORM CODE---------------------------------------------------------                                     
+
+<form action="/login" method="POST">
+<table width="20%" bgcolor="FFFFFF" align="center">
+
+<tr>
+<td colspan=2><center><font size=6><b>Login</b></font></center></td>
+</tr>
+
+<tr>
+<td>Username:</td>
+<td><input type="text" size=25 name="username"></td>
+</tr>
+
+<tr>
+<td>Password:</td>
+<td><input type="Password" size=25 name="password"></td>
+</tr>
+
+<tr>
+<td><input type="Reset" ></td>
+<td><input type="submit" onclick="return check(this.form)" value="Login"></td>
+
+</tr>
+
+</table>
+</form>
+<form action="/registerpage" method="POST">
+<table width="20%" bgcolor="FFFFFF" align="center">
+<tr>
+<td><input type="submit" value="Register"></td>
+
+</tr>
+</table>
+</form>
+  -->
+
+
+
+<!--  ------------------------- Script for Counter ------------------------------->
+<script type="text/javascript">
+	$(".num").counterUp({delay:5,time:2000});
+
+ </script>
+<!-- --------------------------  Main animations ----------------------------------------->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script>
+
+
+<script>
+
+const hero = document.querySelector(".hero");
+const slider = document.querySelector(".slider");
+const headline = document.querySelector(".headline");
+const getstart = document.querySelector(".getstart");
+
+const tl = new TimelineMax();
+
+tl.fromTo(hero,1, {height:"0%"},{height:"80%", ease: Power2.easeInOut})
+.fromTo(hero,1.2, {width:'100%'}, {width:"80%", ease: Power2.easeInOut })
+.fromTo(slider, 1.2, {x:"-100%"}, {x:"0%", ease: Power2.easeInOut}, "-=1.2")
+.fromTo(headline,0.5,{opacity:0, x:30}, {opacity:1, x:0}, "-=0.5")
+.fromTo(getstart,2,{opacity:0, x:30}, {opacity:1, x:0, ease: Power2.easeInOut},"-=0.5" );
+
+</script>
+<!----------------------------------------Bootstrap script --------------------------------------------------------------->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
